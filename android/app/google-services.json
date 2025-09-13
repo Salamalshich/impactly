@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "923866683703",
+    "project_id": "impactly-bfbef",
+    "storage_bucket": "impactly-bfbef.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923866683703:android:be7907847ab9bc0fbb22b2",
+        "android_client_info": {
+          "package_name": "com.example.impactlyflutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH8HJOvu9p05FjtKizPBDCK9z1m4sSp8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
