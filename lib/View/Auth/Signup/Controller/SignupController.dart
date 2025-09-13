@@ -45,7 +45,10 @@ class SignupController with ChangeNotifier {
 
   SelectGovernorate(value) {
     governorate = value;
+<<<<<<< HEAD
     districts = null;
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     notifyListeners();
   }
 
@@ -56,6 +59,7 @@ class SignupController with ChangeNotifier {
 
   SelectRole(value) {
     role = value;
+<<<<<<< HEAD
     if (role == 1) {
       governorate = null;
       districts = null;
@@ -65,6 +69,8 @@ class SignupController with ChangeNotifier {
       association_name.clear();
       address.clear();
     }
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     notifyListeners();
   }
 

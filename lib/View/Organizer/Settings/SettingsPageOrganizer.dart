@@ -3,20 +3,28 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
 import 'package:impactlyflutter/Services/ServicesProvider.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/View/Language/LanguageSelector.dart';
 import 'package:impactlyflutter/View/MyEvent/Controller/MyEventController.dart';
 import 'package:impactlyflutter/View/MyEvent/MyEvent.dart';
 import 'package:impactlyflutter/View/Notifications/Controller/NotificationsController.dart';
 import 'package:impactlyflutter/View/Notifications/NotificationsPage.dart';
+=======
+import 'package:impactlyflutter/View/MyEvent/Controller/MyEventController.dart';
+import 'package:impactlyflutter/View/MyEvent/MyEvent.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:impactlyflutter/View/Pledges/Controller/PledgesPageController.dart';
 import 'package:impactlyflutter/View/Pledges/PledgesPage.dart';
 import 'package:impactlyflutter/View/Profile/Controller/ProfileController.dart';
 import 'package:impactlyflutter/View/Profile/ProfilePage.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/View/Volunteer/Report/Controller/ReportPageController.dart';
 import 'package:impactlyflutter/View/Volunteer/Report/ReportPage.dart';
 import 'package:impactlyflutter/View/Wallet/Controller/WalletController.dart';
 import 'package:impactlyflutter/View/Wallet/WalletPage.dart';
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Services/Routes.dart';
@@ -30,6 +38,7 @@ class SettingsPageOrganizer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
@@ -42,6 +51,18 @@ class SettingsPageOrganizer extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(10),
         children: [
+=======
+      body: ListView(
+        padding: EdgeInsets.all(10),
+        children: [
+          Gap(20),
+          Center(
+            child: Text(
+              "Settings",
+              style: TextStyles.header.copyWith(color: AppColors.black),
+            ),
+          ),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
           ButtonCustom(
             borderradius: 15,
             fullheight: true,
@@ -58,7 +79,11 @@ class SettingsPageOrganizer extends StatelessWidget {
                   ),
                   Gap(7),
                   Text(
+<<<<<<< HEAD
                     AppLocalizations.of(context)!.profile,
+=======
+                    "Profile",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     style: TextStyles.paraghraph.copyWith(
                       color: Color(0xff1D1B20),
                     ),
@@ -92,6 +117,7 @@ class SettingsPageOrganizer extends StatelessWidget {
               child: Row(
                 children: [
                   SvgPicture.asset(
+<<<<<<< HEAD
                     "assets/SVG/wallet.svg",
                     color: Color(0xff1D1B20),
                   ),
@@ -127,12 +153,18 @@ class SettingsPageOrganizer extends StatelessWidget {
               child: Row(
                 children: [
                   SvgPicture.asset(
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     "assets/SVG/Manegment_Event.svg",
                     color: Color(0xff1D1B20),
                   ),
                   Gap(7),
                   Text(
+<<<<<<< HEAD
                     AppLocalizations.of(context)!.my_event,
+=======
+                    "My Event",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     style: TextStyles.paraghraph.copyWith(
                       color: Color(0xff1D1B20),
                     ),
@@ -163,11 +195,19 @@ class SettingsPageOrganizer extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     "assets/SVG/pledge.svg",
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     color: Color(0xff1D1B20),
                   ),
                   Gap(7),
                   Text(
+<<<<<<< HEAD
                     AppLocalizations.of(context)!.my_pledges,
+=======
+                    "My Pledages",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     style: TextStyles.paraghraph.copyWith(
                       color: Color(0xff1D1B20),
                     ),
@@ -199,6 +239,7 @@ class SettingsPageOrganizer extends StatelessWidget {
               child: Row(
                 children: [
                   SvgPicture.asset(
+<<<<<<< HEAD
                     "assets/SVG/notifications.svg",
                     color: Color(0xff1D1B20),
                   ),
@@ -302,12 +343,18 @@ class SettingsPageOrganizer extends StatelessWidget {
               child: Row(
                 children: [
                   SvgPicture.asset(
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     "assets/SVG/Log out.svg",
                     color: Color(0xff1D1B20),
                   ),
                   Gap(7),
                   Text(
+<<<<<<< HEAD
                     AppLocalizations.of(context)!.logout,
+=======
+                    "Logout",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     style: TextStyles.paraghraph.copyWith(
                       color: Color(0xff1D1B20),
                     ),

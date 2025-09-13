@@ -11,7 +11,10 @@ import 'package:impactlyflutter/View/Auth/Signup/Signup.dart';
 import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustom.dart';
 import 'package:provider/provider.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 
 class Loginpage extends StatelessWidget {
   const Loginpage({super.key});
@@ -49,7 +52,11 @@ class Loginpage extends StatelessWidget {
                     Row(
                       children: [
                         Text(
+<<<<<<< HEAD
                           AppLocalizations.of(context)!.login,
+=======
+                          "Login",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.header.copyWith(
                             fontSize: 35.sp,
                             color: AppColors.secondery,
@@ -65,6 +72,7 @@ class Loginpage extends StatelessWidget {
                     ),
 
                     Gap(60),
+<<<<<<< HEAD
                     Text(
                       AppLocalizations.of(context)!.email,
                       style: TextStyles.title,
@@ -84,6 +92,21 @@ class Loginpage extends StatelessWidget {
                     TextInputCustom(
                       controller: controller.password,
                       hint: AppLocalizations.of(context)!.password,
+=======
+                    Text("Email", style: TextStyles.title),
+                    Gap(10),
+                    TextInputCustom(
+                      controller: controller.email,
+                      hint: "Email",
+                      isrequierd: true,
+                    ),
+                    Gap(19),
+                    Text("Password", style: TextStyles.title),
+                    Gap(10),
+                    TextInputCustom(
+                      controller: controller.password,
+                      hint: "Password",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ispassword: true,
                       isrequierd: true,
                     ),
@@ -110,7 +133,11 @@ class Loginpage extends StatelessWidget {
                             }
                           }
                         },
+<<<<<<< HEAD
                         title: AppLocalizations.of(context)!.sign_in,
+=======
+                        title: "Sign in",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         color: AppColors.thirdy,
                       ),
                     ),
@@ -120,7 +147,11 @@ class Loginpage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
+<<<<<<< HEAD
                           AppLocalizations.of(context)!.dont_have_account,
+=======
+                          "Don't have an account?",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.smallpra.copyWith(
                             fontSize: 12.sp,
                             color: AppColors.primary,
@@ -140,7 +171,11 @@ class Loginpage extends StatelessWidget {
                                 ),
                               ),
                           child: Text(
+<<<<<<< HEAD
                             AppLocalizations.of(context)!.sign_up,
+=======
+                            "Sign up",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                             style: TextStyles.smallpra.copyWith(
                               fontSize: 12.sp,
                               color: AppColors.secondery,

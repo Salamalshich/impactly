@@ -1,8 +1,11 @@
 plugins {
     id("com.android.application")
+<<<<<<< HEAD
     // START: FlutterFire Configuration
     id("com.google.gms.google-services")
     // END: FlutterFire Configuration
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
@@ -16,7 +19,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+<<<<<<< HEAD
         isCoreLibraryDesugaringEnabled = true // << هاد الفرق المهم
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     }
 
     kotlinOptions {
@@ -42,11 +48,15 @@ android {
         }
     }
 }
+<<<<<<< HEAD
 dependencies {
     implementation("com.google.firebase:firebase-messaging-ktx:23.2.0")
     implementation("androidx.core:core-ktx:1.12.0")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 flutter {
     source = "../.."
 }

@@ -6,8 +6,13 @@ import 'package:impactlyflutter/Constant/text_styles.dart';
 import 'package:impactlyflutter/View/Volunteer/Home/Controller/HomePageVolunteerController.dart';
 import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustomSearch.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+=======
+import 'package:intl/intl.dart';
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 
 class HomePageVolunteer extends StatelessWidget {
@@ -15,15 +20,22 @@ class HomePageVolunteer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     final locale = AppLocalizations.of(context)!;
 
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     return Consumer<HomePageVolunteerController>(
       builder:
           (context, controller, child) => Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               title: Text(
+<<<<<<< HEAD
                 locale.home,
+=======
+                "Home",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 style: TextStyles.header.copyWith(color: AppColors.black),
               ),
               elevation: 0,
@@ -33,6 +45,7 @@ class HomePageVolunteer extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               padding: EdgeInsets.all(16),
               children: [
+<<<<<<< HEAD
                 Row(
                   children: [
                     IconButton(
@@ -67,12 +80,21 @@ class HomePageVolunteer extends StatelessWidget {
                       onSelected: (value) => controller.DistrictEvents(context),
                     ),
                   ],
+=======
+                TextInputCustomSearch(
+                  hint: "Search",
+                  controller: controller.searchcontroller,
+                  onSearch: (query) => controller.searchEvent(query),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 ),
                 Gap(10),
                 controller.isLoadinggetEvent
                     ? Center(child: CircularProgressIndicator())
+<<<<<<< HEAD
                     : controller.listEventfilter.isEmpty
                     ? Center(child: Text(locale.no_data_available))
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     : SingleChildScrollView(
                       physics: NeverScrollableScrollPhysics(),
                       child: Column(
@@ -131,7 +153,11 @@ class HomePageVolunteer extends StatelessWidget {
                                                             .center,
                                                     children: [
                                                       Text(
+<<<<<<< HEAD
                                                         locale.max,
+=======
+                                                        "Max",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         style: TextStyles
                                                             .paraghraph
                                                             .copyWith(
@@ -167,6 +193,10 @@ class HomePageVolunteer extends StatelessWidget {
                                               style: TextStyles.paraghraph,
                                             ),
                                             Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                             Wrap(
                                               alignment: WrapAlignment.start,
                                               crossAxisAlignment:
@@ -177,7 +207,13 @@ class HomePageVolunteer extends StatelessWidget {
                                                 Row(
                                                   children: [
                                                     Icon(Icons.domain),
+<<<<<<< HEAD
                                                     Gap(5),
+=======
+
+                                                    Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Text(
                                                       e.organizerName!,
                                                       style: TextStyles
@@ -201,6 +237,10 @@ class HomePageVolunteer extends StatelessWidget {
                                                     if (e.governorateName !=
                                                         null)
                                                       Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     if (e.governorateName !=
                                                         null)
                                                       Text(
@@ -216,6 +256,10 @@ class HomePageVolunteer extends StatelessWidget {
                                                     if (e.governorateName !=
                                                         null)
                                                       Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     if (e.districtName != null)
                                                       Text(
                                                         e.districtName!,
@@ -229,6 +273,10 @@ class HomePageVolunteer extends StatelessWidget {
                                                       ),
                                                     if (e.location != null)
                                                       Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     if (e.location != null)
                                                       Text(
                                                         e.location!,
@@ -246,8 +294,14 @@ class HomePageVolunteer extends StatelessWidget {
                                                   children: [
                                                     Icon(Icons.event_available),
                                                     Gap(5),
+<<<<<<< HEAD
                                                     Text(locale.from),
                                                     Gap(5),
+=======
+                                                    Text("From"),
+                                                    Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Text(
                                                       DateFormat(
                                                         'yyyy-MM-dd HH:mm a',
@@ -270,7 +324,11 @@ class HomePageVolunteer extends StatelessWidget {
                                                   children: [
                                                     Icon(Icons.event_busy),
                                                     Gap(5),
+<<<<<<< HEAD
                                                     Text(locale.to),
+=======
+                                                    Text("To"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Gap(5),
                                                     Text(
                                                       DateFormat(
@@ -290,6 +348,10 @@ class HomePageVolunteer extends StatelessWidget {
                                                     ),
                                                   ],
                                                 ),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                 Row(
                                                   children: [
                                                     Icon(
@@ -297,9 +359,13 @@ class HomePageVolunteer extends StatelessWidget {
                                                           .volunteer_activism_outlined,
                                                     ),
                                                     Gap(5),
+<<<<<<< HEAD
                                                     Text(
                                                       locale.registered_colon,
                                                     ),
+=======
+                                                    Text("Registered: "),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Gap(5),
                                                     Text(
                                                       e.volunteerRegistrationsCount
@@ -316,6 +382,7 @@ class HomePageVolunteer extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
+<<<<<<< HEAD
                                             if (e
                                                 .requestedPledges!
                                                 .isNotEmpty) ...[
@@ -385,6 +452,8 @@ class HomePageVolunteer extends StatelessWidget {
                                                         .toList(),
                                               ),
                                             ],
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                             Gap(5),
                                             Row(
                                               mainAxisAlignment:
@@ -392,7 +461,11 @@ class HomePageVolunteer extends StatelessWidget {
                                               children: [
                                                 e.isRegistered!
                                                     ? Text(
+<<<<<<< HEAD
                                                       locale.already_registered,
+=======
+                                                      "You have already registered",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                       style: TextStyles
                                                           .paraghraph
                                                           .copyWith(
@@ -417,12 +490,17 @@ class HomePageVolunteer extends StatelessWidget {
                                                               8.0,
                                                             ),
                                                         child: Text(
+<<<<<<< HEAD
                                                           locale.register,
+=======
+                                                          "Register",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                           style:
                                                               TextStyles.button,
                                                         ),
                                                       ),
                                                     ),
+<<<<<<< HEAD
                                                 if (e
                                                     .requestedPledges!
                                                     .isNotEmpty) ...[
@@ -450,6 +528,30 @@ class HomePageVolunteer extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ],
+=======
+                                                Gap(5),
+                                                ButtonCustom(
+                                                  fullWidth: false,
+                                                  width: 150,
+                                                  fullheight: true,
+                                                  onTap:
+                                                      () =>
+                                                          controller.DialogAddOrUpdatePledges(
+                                                            context,
+                                                            e.id,
+                                                          ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                          8.0,
+                                                        ),
+                                                    child: Text(
+                                                      "New pledge",
+                                                      style: TextStyles.button,
+                                                    ),
+                                                  ),
+                                                ),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                               ],
                                             ),
                                           ],

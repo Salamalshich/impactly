@@ -8,6 +8,7 @@ import 'package:gap/gap.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
 import 'package:impactlyflutter/Constant/url.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/Controller/CategoryController.dart';
 import 'package:impactlyflutter/Controller/GovernorateController%20copy.dart';
 import 'package:impactlyflutter/Model/Category.dart' show Category;
@@ -15,14 +16,21 @@ import 'package:impactlyflutter/Model/Districts.dart';
 import 'package:impactlyflutter/Model/Event.dart';
 import 'package:impactlyflutter/Model/Governorate.dart';
 import 'package:impactlyflutter/Model/Pledges.dart';
+=======
+import 'package:impactlyflutter/Model/Event.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:impactlyflutter/Services/CustomDialog.dart';
 import 'package:impactlyflutter/Services/Failure.dart';
 import 'package:impactlyflutter/Services/NetworkClient.dart';
 import 'package:impactlyflutter/Services/Routes.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
 import 'package:impactlyflutter/Widgets/Dropdown/DropdownCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustom.dart';
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+import 'package:impactlyflutter/Widgets/TextInput/TextInputCustom.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 
 class HomePageVolunteerController with ChangeNotifier {
@@ -94,6 +102,7 @@ class HomePageVolunteerController with ChangeNotifier {
     }
   }
 
+<<<<<<< HEAD
   TextEditingController startDateFilter = TextEditingController();
   TextEditingController endDateFilter = TextEditingController();
   TextEditingController maxVolunteersFilter = TextEditingController();
@@ -499,6 +508,8 @@ class HomePageVolunteerController with ChangeNotifier {
     }
   }
 
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
   Future<Either<Failure, bool>> RegisterOnEvent(
     BuildContext context,
     int id,
@@ -540,9 +551,13 @@ class HomePageVolunteerController with ChangeNotifier {
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(
                   AppLocalizations.of(context)!.confirm_registration_process,
                 ),
+=======
+                title: Text("Confirm registration process"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
@@ -552,9 +567,15 @@ class HomePageVolunteerController with ChangeNotifier {
                     child: Column(
                       children: [
                         Text(
+<<<<<<< HEAD
                           AppLocalizations.of(
                             context,
                           )!.confirm_registration_message,
+=======
+                          """Are you sure you want to register for this event?
+
+You can withdraw before the event starts from the Event Management page.""",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.paraghraph,
                         ),
                       ],
@@ -590,21 +611,33 @@ class HomePageVolunteerController with ChangeNotifier {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
+<<<<<<< HEAD
                         child: Text(
                           AppLocalizations.of(context)!.confirm,
                           style: TextStyles.button,
                         ),
+=======
+                        child: Text("Confirm", style: TextStyles.button),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
                   TextButton(
                     onPressed: () {
                       CustomRoute.RoutePop(context);
+<<<<<<< HEAD
+=======
+                      // cleardata();
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         AppLocalizations.of(context)!.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),
@@ -621,6 +654,7 @@ class HomePageVolunteerController with ChangeNotifier {
   TextEditingController item_namecontroller = TextEditingController();
   TextEditingController quantitycontroller = TextEditingController();
   TextEditingController notescontroller = TextEditingController();
+<<<<<<< HEAD
   String donationType = "item"; // default
   int? requested_id; // default
   TextEditingController amountController =
@@ -630,6 +664,52 @@ class HomePageVolunteerController with ChangeNotifier {
     int? id_event,
     List<Pledges> requestedpledges,
   ) async {
+=======
+
+  Future<Either<Failure, bool>> AddPledge(BuildContext context, int id) async {
+    final client = Provider.of<NetworkClient>(context, listen: false);
+
+    try {
+      final response = await client.request(
+        path: AppApi.AddPledge,
+        withtoken: true,
+
+        requestType: RequestType.POST,
+        body: jsonEncode({
+          "event_id": id,
+          "item_name": item_namecontroller.text,
+          "quantity": quantitycontroller.text,
+          "notes": notescontroller.text,
+        }),
+      );
+      log(response.statusCode.toString());
+      log(response.body.toString());
+      var data = jsonDecode(response.body);
+      if (response.statusCode == 201) {
+        CustomRoute.RoutePop(context);
+        cleardata();
+        CustomDialog.DialogSuccess(context, title: "${data['message']}");
+        return Right(true);
+      } else if (response.statusCode == 404) {
+        return Left(ResultFailure(''));
+      } else {
+        return Left(GlobalFailure());
+      }
+    } catch (e) {
+      log(e.toString());
+      log("error in this fun");
+      return Left(GlobalFailure());
+    }
+  }
+
+  cleardata() {
+    item_namecontroller.clear();
+    quantitycontroller.clear();
+    notescontroller.clear();
+  }
+
+  DialogAddOrUpdatePledges(BuildContext context, int? id_event) async {
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     final formkey = GlobalKey<FormState>();
 
     showDialog(
@@ -638,6 +718,7 @@ class HomePageVolunteerController with ChangeNotifier {
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(AppLocalizations.of(context)!.add_new_pledge),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -725,6 +806,44 @@ class HomePageVolunteerController with ChangeNotifier {
                             ),
                           ],
                         ),
+=======
+                title: Text("Add New Pledge"),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                content: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Form(
+                      key: formkey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Item name", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: item_namecontroller,
+                            hint: "Item name",
+                            icon: Icon(Icons.title),
+                          ),
+                          Gap(10),
+                          Text("Quantity", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: quantitycontroller,
+                            hint: "Quantitiy",
+                            icon: Icon(Icons.numbers_outlined),
+                          ),
+                          Gap(10),
+                          Text("Notes", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: notescontroller,
+                            hint: "Notes",
+                            icon: Icon(Icons.notes_outlined),
+                          ),
+                        ],
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
@@ -734,6 +853,7 @@ class HomePageVolunteerController with ChangeNotifier {
                     onTap: () async {
                       if (formkey.currentState!.validate()) {
                         EasyLoading.show();
+<<<<<<< HEAD
                         Either<Failure, bool> result = await AddPledge(
                           context,
                           id_event!,
@@ -749,6 +869,25 @@ class HomePageVolunteerController with ChangeNotifier {
                             EasyLoading.dismiss();
                           },
                         );
+=======
+                        try {
+                          Either<Failure, bool> result;
+
+                          result = await AddPledge(context, id_event!);
+
+                          result.fold(
+                            (l) {
+                              EasyLoading.showError(l.message);
+                              EasyLoading.dismiss();
+                            },
+                            (r) {
+                              EasyLoading.dismiss();
+                            },
+                          );
+                        } catch (e) {
+                          EasyLoading.dismiss();
+                        }
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       }
                     },
                     child: Container(
@@ -758,22 +897,34 @@ class HomePageVolunteerController with ChangeNotifier {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
+<<<<<<< HEAD
                         child: Text(
                           AppLocalizations.of(context)!.add,
                           style: TextStyles.button,
                         ),
+=======
+                        child: Text("Add", style: TextStyles.button),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
                   TextButton(
                     onPressed: () {
                       cleardata();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       CustomRoute.RoutePop(context);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         AppLocalizations.of(context)!.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),
@@ -786,6 +937,7 @@ class HomePageVolunteerController with ChangeNotifier {
           ),
     );
   }
+<<<<<<< HEAD
 
   // تعديل دالة AddPledge
   Future<Either<Failure, bool>> AddPledge(
@@ -845,4 +997,6 @@ class HomePageVolunteerController with ChangeNotifier {
     quantitycontroller.clear();
     notescontroller.clear();
   }
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 }

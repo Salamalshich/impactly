@@ -15,8 +15,11 @@ class ServicesProvider with ChangeNotifier {
 
   bool get isLoggedIn => _prefs?.getBool('isLoggin') ?? false;
 
+<<<<<<< HEAD
   bool get isShowBoarding => _prefs?.getBool('showboard') ?? false;
 
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
   Future<void> saveTokenAndRole(String token, String role) async {
     await _prefs?.setString('token', token);
     await _prefs?.setString('role', role);
@@ -24,6 +27,7 @@ class ServicesProvider with ChangeNotifier {
     notifyListeners();
   }
 
+<<<<<<< HEAD
   Future<void> showboard() async {
     await _prefs?.setBool('showboard', true);
     notifyListeners();
@@ -32,6 +36,10 @@ class ServicesProvider with ChangeNotifier {
   Future<void> logout() async {
     await _prefs?.remove('token');
     await _prefs?.remove('showboard');
+=======
+  Future<void> logout() async {
+    await _prefs?.remove('token');
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     await _prefs?.remove('role');
     await _prefs?.remove('isLoggin');
     notifyListeners();

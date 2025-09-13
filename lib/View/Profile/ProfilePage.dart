@@ -8,7 +8,10 @@ import 'package:impactlyflutter/Model/Governorate.dart';
 import 'package:impactlyflutter/Services/ServicesProvider.dart';
 import 'package:impactlyflutter/View/Profile/Controller/ProfileController.dart';
 import 'package:impactlyflutter/Widgets/Dropdown/DropdownCustom.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
@@ -28,7 +31,11 @@ class ProfilePage extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               title: Text(
+<<<<<<< HEAD
                 AppLocalizations.of(context)!.profile,
+=======
+                "Profile",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 style: TextStyles.header.copyWith(color: AppColors.black),
               ),
               elevation: 0,
@@ -44,6 +51,7 @@ class ProfilePage extends StatelessWidget {
               child: ListView(
                 padding: EdgeInsets.all(10),
                 children: [
+<<<<<<< HEAD
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -79,10 +87,17 @@ class ProfilePage extends StatelessWidget {
                   Gap(10),
                   TextInputCustom(
                     hint: AppLocalizations.of(context)!.full_name,
+=======
+                  Text("Full Name", style: TextStyles.title),
+                  Gap(10),
+                  TextInputCustom(
+                    hint: "Full name",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     isrequierd: true,
                     controller: controller.fullname,
                   ),
                   Gap(22),
+<<<<<<< HEAD
                   Text(
                     AppLocalizations.of(context)!.email,
                     style: TextStyles.title,
@@ -90,11 +105,18 @@ class ProfilePage extends StatelessWidget {
                   Gap(10),
                   TextInputCustom(
                     hint: AppLocalizations.of(context)!.email_address,
+=======
+                  Text("Email", style: TextStyles.title),
+                  Gap(10),
+                  TextInputCustom(
+                    hint: "Email address",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     isrequierd: true,
                     enable: false,
                     controller: controller.email,
                   ),
                   Gap(22),
+<<<<<<< HEAD
                   Text(
                     AppLocalizations.of(context)!.phone_number,
                     style: TextStyles.title,
@@ -111,25 +133,51 @@ class ProfilePage extends StatelessWidget {
                       AppLocalizations.of(context)!.address,
                       style: TextStyles.title,
                     ),
+=======
+                  Text("Phone Number", style: TextStyles.title),
+                  Gap(10),
+                  TextInputCustom(
+                    isrequierd: true,
+                    hint: "Phone number",
+
+                    controller: controller.phone,
+                  ),
+
+                  if (context.watch<ServicesProvider>().role != "User") Gap(22),
+                  if (context.watch<ServicesProvider>().role != "User")
+                    Text("Address", style: TextStyles.title),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                   if (context.watch<ServicesProvider>().role != "User") Gap(10),
                   if (context.watch<ServicesProvider>().role != "User")
                     TextInputCustom(
                       isrequierd: true,
+<<<<<<< HEAD
                       hint: AppLocalizations.of(context)!.address,
+=======
+                      hint: "Address",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       controller: controller.address,
                     ),
                   if (context.watch<ServicesProvider>().role == "User") Gap(22),
                   if (context.watch<ServicesProvider>().role == "User")
+<<<<<<< HEAD
                     Text(
                       AppLocalizations.of(context)!.birth_of_date,
                       style: TextStyles.title,
                     ),
+=======
+                    Text("Birth of date", style: TextStyles.title),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                   if (context.watch<ServicesProvider>().role == "User") Gap(10),
                   if (context.watch<ServicesProvider>().role == "User")
                     TextInputCustom(
                       isrequierd: true,
                       controller: controller.bod,
+<<<<<<< HEAD
                       hint: AppLocalizations.of(context)!.birth_of_date,
+=======
+                      hint: "Birth of date",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       suffix: GestureDetector(
                         onTap: () {
                           controller.PickBirthday(context);
@@ -143,18 +191,29 @@ class ProfilePage extends StatelessWidget {
                     ),
                   if (context.watch<ServicesProvider>().role == "User") Gap(22),
                   if (context.watch<ServicesProvider>().role == "User")
+<<<<<<< HEAD
                     Text(
                       AppLocalizations.of(context)!.governorates,
                       style: TextStyles.title,
                     ),
+=======
+                    Text("Governorates", style: TextStyles.title),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                   if (context.watch<ServicesProvider>().role == "User") Gap(10),
                   if (context.watch<ServicesProvider>().role == "User")
                     DropdownCustom<Governorate>(
                       isrequierd: true,
+<<<<<<< HEAD
                       hint: AppLocalizations.of(context)!.governorates,
                       value: controller.governorate,
                       items:
                           controller.governorates
+=======
+                      hint: "Governorates",
+                      value: controller.governorate,
+                      items:
+                          (controller.governorates)
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                               .map(
                                 (e) => DropdownMenuItem(
                                   value: e,
@@ -162,6 +221,7 @@ class ProfilePage extends StatelessWidget {
                                 ),
                               )
                               .toList(),
+<<<<<<< HEAD
                       onChanged: (p0) => controller.SelectGovernorate(p0),
                     ),
                   if (controller.governorate != null) Gap(22),
@@ -170,12 +230,22 @@ class ProfilePage extends StatelessWidget {
                       AppLocalizations.of(context)!.districts,
                       style: TextStyles.title,
                     ),
+=======
+                      onChanged: (p0) {
+                        controller.SelectGovernorate(p0);
+                      },
+                    ),
+                  if (controller.governorate != null) Gap(22),
+                  if (controller.governorate != null)
+                    Text("Districts", style: TextStyles.title),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                   if (controller.governorate != null) Gap(10),
                   if (controller.governorate != null)
                     if (controller.governorate?.districts != null &&
                         controller.governorate!.districts!.isNotEmpty)
                       DropdownCustom<District>(
                         isrequierd: true,
+<<<<<<< HEAD
                         hint: AppLocalizations.of(context)!.districts,
                         value:
                             controller.districts != null &&
@@ -184,6 +254,10 @@ class ProfilePage extends StatelessWidget {
                                     )
                                 ? controller.districts
                                 : null,
+=======
+                        hint: "Districts",
+                        value: controller.districts,
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         items:
                             controller.governorate!.districts!
                                 .map(
@@ -193,6 +267,7 @@ class ProfilePage extends StatelessWidget {
                                   ),
                                 )
                                 .toList(),
+<<<<<<< HEAD
                         onChanged: (p0) => controller.SelectDistricts(p0),
                       ),
                   if (context.watch<ServicesProvider>().role != "User") Gap(22),
@@ -201,13 +276,29 @@ class ProfilePage extends StatelessWidget {
                       AppLocalizations.of(context)!.association_name,
                       style: TextStyles.title,
                     ),
+=======
+                        onChanged: (p0) {
+                          controller.SelectDistricts(p0);
+                        },
+                      ),
+                  if (context.watch<ServicesProvider>().role != "User") Gap(22),
+                  if (context.watch<ServicesProvider>().role != "User")
+                    Text("Association Name", style: TextStyles.title),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                   if (context.watch<ServicesProvider>().role != "User") Gap(10),
                   if (context.watch<ServicesProvider>().role != "User")
                     TextInputCustom(
                       isrequierd: true,
+<<<<<<< HEAD
                       hint: AppLocalizations.of(context)!.association_name,
                       controller: controller.association_name,
                     ),
+=======
+                      hint: "Association Name",
+                      controller: controller.association_name,
+                    ),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                   Gap(51),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 27),
@@ -216,21 +307,45 @@ class ProfilePage extends StatelessWidget {
                         if (controller.keyform.currentState!.validate()) {
                           EasyLoading.show();
                           try {
+<<<<<<< HEAD
                             Either<Failure, bool> res =
                                 await controller.UpdateProfile(context);
                             res.fold((l) {
                               EasyLoading.showError(l.message);
                               EasyLoading.dismiss();
                             }, (r) => EasyLoading.dismiss());
+=======
+                            Either<Failure, bool> res = await controller.Signup(
+                              context,
+                            );
+
+                            res.fold(
+                              (l) {
+                                EasyLoading.showError(l.message);
+                                EasyLoading.dismiss();
+                              },
+                              (r) {
+                                EasyLoading.dismiss();
+                              },
+                            );
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           } catch (e) {
                             EasyLoading.dismiss();
                           }
                         }
                       },
+<<<<<<< HEAD
                       title: AppLocalizations.of(context)!.update_profile,
                       color: AppColors.thirdy,
                     ),
                   ),
+=======
+                      title: "Update profile",
+                      color: AppColors.thirdy,
+                    ),
+                  ),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                   Gap(20),
                 ],
               ),

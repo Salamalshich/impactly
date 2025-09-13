@@ -46,7 +46,10 @@ class ProfileController with ChangeNotifier {
 
   SelectGovernorate(value) {
     governorate = value;
+<<<<<<< HEAD
     districts = null;
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     notifyListeners();
   }
 
@@ -145,7 +148,11 @@ class ProfileController with ChangeNotifier {
     }
   }
 
+<<<<<<< HEAD
   Future<Either<Failure, bool>> UpdateProfile(BuildContext context) async {
+=======
+  Future<Either<Failure, bool>> Signup(BuildContext context) async {
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     final client = Provider.of<NetworkClient>(context, listen: false);
     try {
       var response = await client.request(

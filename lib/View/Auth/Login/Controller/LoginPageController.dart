@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import 'package:firebase_messaging/firebase_messaging.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:flutter/widgets.dart';
 import 'dart:convert';
 import 'dart:developer';
@@ -22,17 +25,24 @@ class Loginpagecontroller with ChangeNotifier {
   TextEditingController password = TextEditingController();
   Future<Either<Failure, bool>> Login(BuildContext context) async {
     final client = Provider.of<NetworkClient>(context, listen: false);
+<<<<<<< HEAD
     String? device_token = await FirebaseMessaging.instance.getToken();
     log(device_token!);
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     try {
       var response = await client.request(
         path: AppApi.LOGIN,
         requestType: RequestType.POST,
+<<<<<<< HEAD
         body: jsonEncode({
           "email": email.text,
           "password": password.text,
           "device_token": device_token,
         }),
+=======
+        body: jsonEncode({"email": email.text, "password": password.text}),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
       );
 
       log(response.statusCode.toString());
@@ -72,17 +82,31 @@ class Loginpagecontroller with ChangeNotifier {
         }
 
         return Right(true);
+<<<<<<< HEAD
       } else if (response.statusCode == 500) {
         CustomDialog.DialogError(context, title: json);
+=======
+      } else if (response.statusCode == 404) {
+        if (json.containsKey('error')) {
+          CustomDialog.DialogError(context, title: json['error']);
+        }
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 
         return Right(false);
       } else if (response.statusCode == 401) {
         if (json.containsKey('message')) {
           CustomDialog.DialogError(context, title: json['message']);
         }
+<<<<<<< HEAD
         return Right(false);
       } else {
         CustomDialog.DialogError(context, title: json);
+=======
+
+        return Right(false);
+      } else {
+        CustomDialog.DialogError(context, title: json['error']);
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
         return Right(false);
       }
     } catch (e) {

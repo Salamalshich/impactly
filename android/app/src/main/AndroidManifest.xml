@@ -1,15 +1,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     <application
         android:label="impactlyflutter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+<<<<<<< HEAD
          <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="channel_id"/>
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -8,10 +8,6 @@ import 'package:impactlyflutter/Model/Districts.dart';
 import 'package:impactlyflutter/Model/Governorate.dart';
 import 'package:impactlyflutter/View/Auth/Signup/Controller/SignupController.dart';
 import 'package:impactlyflutter/Widgets/Dropdown/DropdownCustom.dart';
-<<<<<<< HEAD
-import 'package:impactlyflutter/l10n/app_localizations.dart';
-=======
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
@@ -58,11 +54,7 @@ class Signup extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-<<<<<<< HEAD
-                          AppLocalizations.of(context)!.create_account,
-=======
                           "Create Account",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.header.copyWith(
                             fontSize: 35.sp,
                             color: AppColors.secondery,
@@ -76,62 +68,6 @@ class Signup extends StatelessWidget {
                         ),
                       ],
                     ),
-<<<<<<< HEAD
-                    if (controller.role == 2) Gap(23),
-                    if (controller.role == 2)
-                      Text(
-                        AppLocalizations.of(context)!.full_name,
-                        style: TextStyles.title,
-                      ),
-                    if (controller.role == 2) Gap(10),
-                    if (controller.role == 2)
-                      TextInputCustom(
-                        hint: AppLocalizations.of(context)!.full_name_hint,
-                        isrequierd: true,
-                        controller: controller.fullname,
-                      ),
-                    Gap(22),
-                    Text(
-                      AppLocalizations.of(context)!.email,
-                      style: TextStyles.title,
-                    ),
-                    Gap(10),
-                    TextInputCustom(
-                      hint: AppLocalizations.of(context)!.email_hint,
-                      isrequierd: true,
-                      controller: controller.email,
-                    ),
-                    Gap(22),
-                    Text(
-                      AppLocalizations.of(context)!.phone_number,
-                      style: TextStyles.title,
-                    ),
-                    Gap(10),
-                    TextInputCustom(
-                      isrequierd: true,
-                      hint: AppLocalizations.of(context)!.phone_number_hint,
-                      controller: controller.phone,
-                    ),
-                    Gap(22),
-                    Text(
-                      AppLocalizations.of(context)!.role,
-                      style: TextStyles.title,
-                    ),
-                    Gap(10),
-                    DropdownCustom<int>(
-                      isrequierd: true,
-                      hint: AppLocalizations.of(context)!.role_hint,
-                      value: controller.role,
-                      items: [
-                        DropdownMenuItem(
-                          value: 1,
-                          child: Text(AppLocalizations.of(context)!.organizer),
-                        ),
-                        DropdownMenuItem(
-                          value: 2,
-                          child: Text(AppLocalizations.of(context)!.user),
-                        ),
-=======
                     Gap(23),
                     Text("Full Name", style: TextStyles.title),
                     Gap(10),
@@ -167,7 +103,6 @@ class Signup extends StatelessWidget {
                       items: [
                         DropdownMenuItem(value: 1, child: Text("Organizer")),
                         DropdownMenuItem(value: 2, child: Text("User")),
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ],
                       onChanged: (p0) {
                         controller.SelectRole(p0);
@@ -175,45 +110,23 @@ class Signup extends StatelessWidget {
                     ),
                     if (controller.role == 1) Gap(22),
                     if (controller.role == 1)
-<<<<<<< HEAD
-                      Text(
-                        AppLocalizations.of(context)!.address,
-                        style: TextStyles.title,
-                      ),
-=======
                       Text("Address", style: TextStyles.title),
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     if (controller.role == 1) Gap(10),
                     if (controller.role == 1)
                       TextInputCustom(
                         isrequierd: true,
-<<<<<<< HEAD
-                        hint: AppLocalizations.of(context)!.address,
-=======
                         hint: "Address",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         controller: controller.address,
                       ),
                     if (controller.role == 2) Gap(22),
                     if (controller.role == 2)
-<<<<<<< HEAD
-                      Text(
-                        AppLocalizations.of(context)!.birth_date,
-                        style: TextStyles.title,
-                      ),
-=======
                       Text("Birth of date", style: TextStyles.title),
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     if (controller.role == 2) Gap(10),
                     if (controller.role == 2)
                       TextInputCustom(
                         isrequierd: true,
                         controller: controller.bod,
-<<<<<<< HEAD
-                        hint: AppLocalizations.of(context)!.birth_date,
-=======
                         hint: "Birth of date",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         suffix: GestureDetector(
                           onTap: () {
                             controller.PickBirthday(context);
@@ -227,23 +140,12 @@ class Signup extends StatelessWidget {
                       ),
                     if (controller.role == 2) Gap(22),
                     if (controller.role == 2)
-<<<<<<< HEAD
-                      Text(
-                        AppLocalizations.of(context)!.governorates,
-                        style: TextStyles.title,
-                      ),
-=======
                       Text("Governorates", style: TextStyles.title),
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     if (controller.role == 2) Gap(10),
                     if (controller.role == 2)
                       DropdownCustom<Governorate>(
                         isrequierd: true,
-<<<<<<< HEAD
-                        hint: AppLocalizations.of(context)!.governorates,
-=======
                         hint: "Governorates",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         value: controller.governorate,
                         items:
                             controller.governorates
@@ -260,31 +162,13 @@ class Signup extends StatelessWidget {
                       ),
                     if (controller.governorate != null) Gap(22),
                     if (controller.governorate != null)
-<<<<<<< HEAD
-                      Text(
-                        AppLocalizations.of(context)!.districts,
-                        style: TextStyles.title,
-                      ),
-=======
                       Text("Districts", style: TextStyles.title),
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     if (controller.governorate != null) Gap(10),
                     if (controller.governorate != null)
                       DropdownCustom<District>(
                         isrequierd: true,
-<<<<<<< HEAD
-                        hint: AppLocalizations.of(context)!.districts,
-                        value:
-                            controller.districts != null &&
-                                    controller.governorate!.districts!.any(
-                                      (d) => d.id == controller.districts!.id,
-                                    )
-                                ? controller.districts
-                                : null,
-=======
                         hint: "Districts",
                         value: controller.districts,
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         items:
                             controller.governorate!.districts!
                                 .map(
@@ -300,32 +184,11 @@ class Signup extends StatelessWidget {
                       ),
                     if (controller.role == 1) Gap(22),
                     if (controller.role == 1)
-<<<<<<< HEAD
-                      Text(
-                        AppLocalizations.of(context)!.association_name,
-                        style: TextStyles.title,
-                      ),
-=======
                       Text("Association Name", style: TextStyles.title),
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     if (controller.role == 1) Gap(10),
                     if (controller.role == 1)
                       TextInputCustom(
                         isrequierd: true,
-<<<<<<< HEAD
-                        hint: AppLocalizations.of(context)!.association_name,
-                        controller: controller.association_name,
-                      ),
-                    Gap(22),
-                    Text(
-                      AppLocalizations.of(context)!.password,
-                      style: TextStyles.title,
-                    ),
-                    Gap(10),
-                    TextInputCustom(
-                      isrequierd: true,
-                      hint: AppLocalizations.of(context)!.password,
-=======
                         hint: "Association Name",
                         controller: controller.association_name,
                       ),
@@ -335,47 +198,26 @@ class Signup extends StatelessWidget {
                     TextInputCustom(
                       isrequierd: true,
                       hint: "Password",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ispassword: true,
                       controller: controller.password,
                     ),
                     Gap(22),
-<<<<<<< HEAD
-                    Text(
-                      AppLocalizations.of(context)!.confirm_password,
-                      style: TextStyles.title,
-                    ),
-                    Gap(10),
-                    TextInputCustom(
-                      controller: controller.confirmpassword,
-                      hint: AppLocalizations.of(context)!.confirm_password,
-=======
                     Text("Confirm Password", style: TextStyles.title),
                     Gap(10),
                     TextInputCustom(
                       controller: controller.confirmpassword,
                       hint: "Confirm Password",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       isrequierd: true,
                       ispassword: true,
                       validator: (p0) {
                         if (controller.confirmpassword.text !=
                             controller.password.text) {
-<<<<<<< HEAD
-                          return AppLocalizations.of(
-                            context,
-                          )!.passwords_not_match;
-=======
                           return 'The passwords do not match.';
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         }
                         return null;
                       },
                     ),
-<<<<<<< HEAD
-=======
 
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     Gap(51),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 27),
@@ -386,10 +228,7 @@ class Signup extends StatelessWidget {
                             try {
                               Either<Failure, bool> res =
                                   await controller.Signup(context);
-<<<<<<< HEAD
-=======
 
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                               res.fold(
                                 (l) {
                                   EasyLoading.showError(l.message);
@@ -404,11 +243,7 @@ class Signup extends StatelessWidget {
                             }
                           }
                         },
-<<<<<<< HEAD
-                        title: AppLocalizations.of(context)!.sign_up,
-=======
                         title: "Sign up",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         color: AppColors.thirdy,
                       ),
                     ),
@@ -418,11 +253,7 @@ class Signup extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-<<<<<<< HEAD
-                          AppLocalizations.of(context)!.already_have_account,
-=======
                           "Already have an account?",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.smallpra.copyWith(
                             fontSize: 12.sp,
                             color: AppColors.primary,
@@ -439,11 +270,7 @@ class Signup extends StatelessWidget {
                                 ),
                               ),
                           child: Text(
-<<<<<<< HEAD
-                            AppLocalizations.of(context)!.sign_in,
-=======
                             "Sign in",
->>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                             style: TextStyles.smallpra.copyWith(
                               fontSize: 12.sp,
                               color: AppColors.secondery,

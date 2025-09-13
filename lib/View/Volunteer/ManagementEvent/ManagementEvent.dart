@@ -4,12 +4,18 @@ import 'package:gap/gap.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
 import 'package:impactlyflutter/Services/Routes.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/View/EventDetails/Controller/EventDetailsController.dart';
 import 'package:impactlyflutter/View/EventDetails/EventDetails.dart';
 import 'package:impactlyflutter/View/Volunteer/ManagementEvent/Controller/ManagementEventController.dart';
 import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustomSearch.dart';
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+import 'package:impactlyflutter/View/Volunteer/ManagementEvent/Controller/ManagementEventController.dart';
+import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
+import 'package:impactlyflutter/Widgets/TextInput/TextInputCustomSearch.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +30,11 @@ class ManagementEvent extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               title: Text(
+<<<<<<< HEAD
                 AppLocalizations.of(context)!.event_management,
+=======
+                "Event Management",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 style: TextStyles.header.copyWith(color: AppColors.black),
               ),
               elevation: 0,
@@ -38,6 +48,7 @@ class ManagementEvent extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               padding: EdgeInsets.all(16),
               children: [
+<<<<<<< HEAD
                 Row(
                   children: [
                     Expanded(
@@ -52,16 +63,25 @@ class ManagementEvent extends StatelessWidget {
                       icon: Icon(Icons.refresh),
                     ),
                   ],
+=======
+                TextInputCustomSearch(
+                  hint: "Search",
+                  controller: controller.searchcontroller,
+                  onSearch: (query) => controller.searchEvent(query),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 ),
                 Gap(10),
                 controller.isLoadinggetEvent
                     ? Center(child: CircularProgressIndicator())
+<<<<<<< HEAD
                     : controller.listVolunteerRegisterationfilter.isEmpty
                     ? Center(
                       child: Text(
                         AppLocalizations.of(context)!.no_data_available,
                       ),
                     )
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     : SingleChildScrollView(
                       physics: NeverScrollableScrollPhysics(),
                       child: Column(
@@ -90,9 +110,13 @@ class ManagementEvent extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
+<<<<<<< HEAD
                                                   AppLocalizations.of(
                                                     context,
                                                   )!.register_information,
+=======
+                                                  "Register information",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                   style: TextStyles.header,
                                                 ),
                                                 Gap(10),
@@ -100,12 +124,18 @@ class ManagementEvent extends StatelessWidget {
                                                   children: [
                                                     Icon(Icons.shield_outlined),
                                                     Gap(5),
+<<<<<<< HEAD
                                                     Text(
                                                       AppLocalizations.of(
                                                         context,
                                                       )!.status,
                                                     ),
                                                     Gap(5),
+=======
+                                                    Text("Status:"),
+                                                    Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Expanded(
                                                       child: Text(
                                                         e.registration!.status!,
@@ -128,12 +158,18 @@ class ManagementEvent extends StatelessWidget {
                                                           .access_time_outlined,
                                                     ),
                                                     Gap(5),
+<<<<<<< HEAD
                                                     Text(
                                                       AppLocalizations.of(
                                                         context,
                                                       )!.hours,
                                                     ),
                                                     Gap(5),
+=======
+                                                    Text("Hours:"),
+                                                    Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Expanded(
                                                       child: Text(
                                                         e
@@ -158,12 +194,18 @@ class ManagementEvent extends StatelessWidget {
                                                       Icons.feedback_outlined,
                                                     ),
                                                     Gap(5),
+<<<<<<< HEAD
                                                     Text(
                                                       AppLocalizations.of(
                                                         context,
                                                       )!.feedback,
                                                     ),
                                                     Gap(5),
+=======
+                                                    Text("Feedback:"),
+                                                    Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Expanded(
                                                       child: Text(
                                                         e
@@ -189,12 +231,18 @@ class ManagementEvent extends StatelessWidget {
                                                           .star_border_outlined,
                                                     ),
                                                     Gap(5),
+<<<<<<< HEAD
                                                     Text(
                                                       AppLocalizations.of(
                                                         context,
                                                       )!.rating,
                                                     ),
                                                     Gap(5),
+=======
+                                                    Text("Rating:"),
+                                                    Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Expanded(
                                                       child: Text(
                                                         e.registration!.rating
@@ -223,9 +271,13 @@ class ManagementEvent extends StatelessWidget {
                                                                 .start,
                                                         children: [
                                                           Text(
+<<<<<<< HEAD
                                                             AppLocalizations.of(
                                                               context,
                                                             )!.event_information,
+=======
+                                                            "Event information",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                             style:
                                                                 TextStyles
                                                                     .header,
@@ -265,9 +317,13 @@ class ManagementEvent extends StatelessWidget {
                                                                 .center,
                                                         children: [
                                                           Text(
+<<<<<<< HEAD
                                                             AppLocalizations.of(
                                                               context,
                                                             )!.max,
+=======
+                                                            "Max",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                             style: TextStyles
                                                                 .paraghraph
                                                                 .copyWith(
@@ -307,6 +363,10 @@ class ManagementEvent extends StatelessWidget {
                                                   style: TextStyles.paraghraph,
                                                 ),
                                                 Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                 Wrap(
                                                   alignment:
                                                       WrapAlignment.start,
@@ -327,6 +387,10 @@ class ManagementEvent extends StatelessWidget {
                                                                 .governorateName !=
                                                             null)
                                                           Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         if (e
                                                                 .event!
                                                                 .governorateName !=
@@ -348,6 +412,10 @@ class ManagementEvent extends StatelessWidget {
                                                                 .governorateName !=
                                                             null)
                                                           Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         if (e
                                                                 .event!
                                                                 .districtName !=
@@ -367,6 +435,10 @@ class ManagementEvent extends StatelessWidget {
                                                         if (e.event!.location !=
                                                             null)
                                                           Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         if (e.event!.location !=
                                                             null)
                                                           Text(
@@ -387,12 +459,18 @@ class ManagementEvent extends StatelessWidget {
                                                           Icons.event_available,
                                                         ),
                                                         Gap(5),
+<<<<<<< HEAD
                                                         Text(
                                                           AppLocalizations.of(
                                                             context,
                                                           )!.from,
                                                         ),
                                                         Gap(5),
+=======
+                                                        Text("From"),
+                                                        Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         Expanded(
                                                           child: Text(
                                                             DateFormat(
@@ -419,11 +497,15 @@ class ManagementEvent extends StatelessWidget {
                                                       children: [
                                                         Icon(Icons.event_busy),
                                                         Gap(5),
+<<<<<<< HEAD
                                                         Text(
                                                           AppLocalizations.of(
                                                             context,
                                                           )!.to,
                                                         ),
+=======
+                                                        Text("To"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         Gap(5),
                                                         Expanded(
                                                           child: Text(
@@ -456,11 +538,15 @@ class ManagementEvent extends StatelessWidget {
                                                                 .gpp_good_outlined,
                                                           ),
                                                           Gap(5),
+<<<<<<< HEAD
                                                           Text(
                                                             AppLocalizations.of(
                                                               context,
                                                             )!.status_is,
                                                           ),
+=======
+                                                          Text("Status is"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                           Gap(5),
                                                           Expanded(
                                                             child: Text(
@@ -476,6 +562,10 @@ class ManagementEvent extends StatelessWidget {
                                                           ),
                                                         ],
                                                       ),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                     Row(
                                                       children: [
                                                         Icon(
@@ -483,9 +573,13 @@ class ManagementEvent extends StatelessWidget {
                                                               .volunteer_activism_outlined,
                                                         ),
                                                         Gap(5),
+<<<<<<< HEAD
                                                         Text(
                                                           "${AppLocalizations.of(context)!.registered}: ",
                                                         ),
+=======
+                                                        Text("Registered: "),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         Gap(5),
                                                         Text(
                                                           e
@@ -504,11 +598,16 @@ class ManagementEvent extends StatelessWidget {
                                                     ),
                                                   ],
                                                 ),
+<<<<<<< HEAD
+=======
+                                                // Gap(5),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                               ],
                                             ),
                                           ),
                                         ),
                                       ),
+<<<<<<< HEAD
                                       Row(
                                         children: [
                                           if (e.registration!.status ==
@@ -517,6 +616,11 @@ class ManagementEvent extends StatelessWidget {
                                                       null &&
                                                   e.registration!.rating ==
                                                       null)) ...[
+=======
+                                      if (e.registration!.status == 'attended')
+                                        Row(
+                                          children: [
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                             Expanded(
                                               child: ButtonCustom(
                                                 fullWidth: true,
@@ -526,6 +630,7 @@ class ManagementEvent extends StatelessWidget {
                                                     e.registration!.id!,
                                                   );
                                                 },
+<<<<<<< HEAD
                                                 title:
                                                     AppLocalizations.of(
                                                       context,
@@ -577,6 +682,19 @@ class ManagementEvent extends StatelessWidget {
                                           if (e.event!.status != 'completed' &&
                                               e.registration!.status !=
                                                   'cancelled')
+=======
+
+                                                title: "Feedback and rating",
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      if (e.event!.status != 'completed' &&
+                                          e.registration!.status != 'cancelled')
+                                        Row(
+                                          children: [
+                                            Gap(5),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                             Expanded(
                                               child: ButtonCustom(
                                                 color: AppColors.active,
@@ -587,6 +705,7 @@ class ManagementEvent extends StatelessWidget {
                                                           context,
                                                           e.registration!.id!,
                                                         ),
+<<<<<<< HEAD
                                                 title:
                                                     AppLocalizations.of(
                                                       context,
@@ -628,6 +747,13 @@ class ManagementEvent extends StatelessWidget {
                                             ),
                                         ],
                                       ),
+=======
+                                                title: "Withdraw",
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                     ],
                                   ),
                                 )

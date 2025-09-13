@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'dart:convert';
 import 'dart:developer';
 
@@ -769,4 +770,9 @@ DialogAddOrUpdatePledges(
     quantitycontroller.clear();
     notescontroller.clear();
   }
+=======
+
+class HomePageOrganizerController with ChangeNotifier {
+  // final client = Provider.of<NetworkClient>(context, listen: false);
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 }

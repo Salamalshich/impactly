@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 import 'package:impactlyflutter/Model/Category.dart';
 import 'package:impactlyflutter/Model/Pledges.dart';
 
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 class Event {
   int? id;
   String? title;
@@ -23,7 +26,10 @@ class Event {
   String? organizerName;
   bool? isRegistered;
   int? registrationId;
+<<<<<<< HEAD
   List<Pledges>? requestedPledges;
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 
   Event({
     this.id,
@@ -47,7 +53,10 @@ class Event {
     this.organizerName,
     this.isRegistered,
     this.registrationId,
+<<<<<<< HEAD
     this.requestedPledges,
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
   });
 
   Event.fromJson(Map<String, dynamic> json) {
@@ -87,6 +96,7 @@ class Event {
     if (json.containsKey('registration_id')) {
       registrationId = json['registration_id'];
     }
+<<<<<<< HEAD
     if (json['requested_pledges'] != null) {
       requestedPledges = <Pledges>[];
       json['requested_pledges'].forEach((v) {
@@ -141,5 +151,7 @@ class Event {
         requestedPledges!.add(new Pledges.fromJson(v));
       });
     }
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
   }
 }

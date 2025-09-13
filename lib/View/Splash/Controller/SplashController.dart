@@ -6,7 +6,10 @@ import 'package:impactlyflutter/Services/Routes.dart';
 import 'package:impactlyflutter/Services/ServicesProvider.dart';
 import 'package:impactlyflutter/View/Auth/Login/Controller/LoginPageController.dart';
 import 'package:impactlyflutter/View/Auth/Login/LoginPage.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/View/OnBoarding/OnboardingScreen.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:impactlyflutter/View/Organizer/Navigation/Controller/NavigationPageOrganizerController.dart';
 import 'package:impactlyflutter/View/Organizer/Navigation/NavigationPageOrganizer.dart';
 import 'package:impactlyflutter/View/Volunteer/Navigation/Controller/NavigationPageEmployeerController.dart';
@@ -22,6 +25,7 @@ class SplashController with ChangeNotifier {
 
   whenIslogin(BuildContext context) async {
     Future.delayed(Duration(seconds: 5)).then((value) async {
+<<<<<<< HEAD
       if (Provider.of<ServicesProvider>(
         context,
         listen: false,
@@ -38,6 +42,17 @@ class SplashController with ChangeNotifier {
         }
       } else {
         CustomRoute.RouteReplacementTo(context, OnboardingScreen());
+=======
+      if (Provider.of<ServicesProvider>(context, listen: false).isLoggedIn) {
+        if (Provider.of<ServicesProvider>(context, listen: false).role ==
+            'Organizer') {
+          toHomePageOrganizer(context);
+        } else {
+          toHomePageVolunteer(context);
+        }
+      } else {
+        toLoginPage(context);
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
       }
     });
   }

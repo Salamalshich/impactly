@@ -13,7 +13,10 @@ import 'package:impactlyflutter/Services/Routes.dart';
 import 'package:impactlyflutter/View/MyEvent/Controller/MyEventController.dart';
 import 'package:impactlyflutter/Widgets/Dropdown/DropdownCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustom.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'dart:developer';
@@ -157,7 +160,11 @@ class EventDetailsController with ChangeNotifier {
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(AppLocalizations.of(context)!.verified_volunteer),
+=======
+                title: Text("Verifed Volunteer"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
@@ -169,6 +176,7 @@ class EventDetailsController with ChangeNotifier {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+<<<<<<< HEAD
                           Text(
                             AppLocalizations.of(context)!.worked_hours,
                             style: TextStyles.title,
@@ -177,6 +185,13 @@ class EventDetailsController with ChangeNotifier {
                           TextInputCustom(
                             controller: workedhourscontroller,
                             hint: AppLocalizations.of(context)!.worked_hours,
+=======
+                          Text("Worked Hours", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: workedhourscontroller,
+                            hint: "Worked Hours",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                             icon: Icon(Icons.access_time_outlined),
                           ),
                         ],
@@ -215,10 +230,14 @@ class EventDetailsController with ChangeNotifier {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
+<<<<<<< HEAD
                         child: Text(
                           AppLocalizations.of(context)!.add,
                           style: TextStyles.button,
                         ),
+=======
+                        child: Text("Add", style: TextStyles.button),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
@@ -229,7 +248,11 @@ class EventDetailsController with ChangeNotifier {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         AppLocalizations.of(context)!.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),
@@ -285,7 +308,11 @@ class EventDetailsController with ChangeNotifier {
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(AppLocalizations.of(context)!.volunteer_no_show),
+=======
+                title: Text("Volunteer NoShow"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
@@ -295,7 +322,11 @@ class EventDetailsController with ChangeNotifier {
                     child: Column(
                       children: [
                         Text(
+<<<<<<< HEAD
                           AppLocalizations.of(context)!.confirm_no_show,
+=======
+                          "Are you sure you want to change your event volunteer status to no-show?",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.paraghraph,
                         ),
                       ],
@@ -331,10 +362,14 @@ class EventDetailsController with ChangeNotifier {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
+<<<<<<< HEAD
                         child: Text(
                           AppLocalizations.of(context)!.confirm,
                           style: TextStyles.button,
                         ),
+=======
+                        child: Text("Confirm", style: TextStyles.button),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
@@ -345,7 +380,11 @@ class EventDetailsController with ChangeNotifier {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         AppLocalizations.of(context)!.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),
@@ -400,7 +439,11 @@ class EventDetailsController with ChangeNotifier {
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(AppLocalizations.of(context)!.complete_event),
+=======
+                title: Text("Complete Event"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
@@ -410,7 +453,11 @@ class EventDetailsController with ChangeNotifier {
                     child: Column(
                       children: [
                         Text(
+<<<<<<< HEAD
                           AppLocalizations.of(context)!.confirm_complete_event,
+=======
+                          "Are you sure you want to complete event?",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.paraghraph,
                         ),
                       ],
@@ -445,10 +492,14 @@ class EventDetailsController with ChangeNotifier {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
+<<<<<<< HEAD
                         child: Text(
                           AppLocalizations.of(context)!.confirm,
                           style: TextStyles.button,
                         ),
+=======
+                        child: Text("Confirm", style: TextStyles.button),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
@@ -459,7 +510,11 @@ class EventDetailsController with ChangeNotifier {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         AppLocalizations.of(context)!.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),
@@ -521,6 +576,7 @@ class EventDetailsController with ChangeNotifier {
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(AppLocalizations.of(context)!.update_status_pledge),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -554,6 +610,35 @@ class EventDetailsController with ChangeNotifier {
                           ),
                         ],
                       ),
+=======
+                title: Text("Update Status Pledge"),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                content: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Select pledge status", style: TextStyles.title),
+                        Gap(5),
+                        DropdownCustom<String>(
+                          items:
+                              ['approved', 'rejected', 'delivered']
+                                  .map(
+                                    (e) => DropdownMenuItem(
+                                      value: e,
+                                      child: Text(e),
+                                    ),
+                                  )
+                                  .toList(),
+                          onChanged: (p0) {
+                            SelectStatus(p0, setState);
+                          },
+                        ),
+                      ],
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     ),
                   ),
                 ),
@@ -584,10 +669,14 @@ class EventDetailsController with ChangeNotifier {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
+<<<<<<< HEAD
                         child: Text(
                           AppLocalizations.of(context)!.confirm,
                           style: TextStyles.button,
                         ),
+=======
+                        child: Text("Confirm", style: TextStyles.button),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
@@ -598,6 +687,7 @@ class EventDetailsController with ChangeNotifier {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         AppLocalizations.of(context)!.close,
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
@@ -732,6 +822,9 @@ class EventDetailsController with ChangeNotifier {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         AppLocalizations.of(context)!.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),

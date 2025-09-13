@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
 import 'package:impactlyflutter/Services/Routes.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/View/EventDetails/Controller/EventDetailsController.dart';
 import 'package:impactlyflutter/View/EventDetails/EventDetails.dart';
 import 'package:impactlyflutter/View/MyEvent/Controller/MyEventController.dart';
@@ -12,6 +13,14 @@ import 'package:impactlyflutter/View/MyRequestedPledge/MyRequstedPledge.dart';
 import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustomSearch.dart';
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+import 'package:impactlyflutter/Services/ServicesProvider.dart';
+import 'package:impactlyflutter/View/EventDetails/Controller/EventDetailsController.dart';
+import 'package:impactlyflutter/View/EventDetails/EventDetails.dart';
+import 'package:impactlyflutter/View/MyEvent/Controller/MyEventController.dart';
+import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
+import 'package:impactlyflutter/Widgets/TextInput/TextInputCustomSearch.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -30,15 +39,32 @@ class MyEvent extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               title: Text(
+<<<<<<< HEAD
                 AppLocalizations.of(context)!.my_event,
+=======
+                "My Event",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 style: TextStyles.header.copyWith(color: AppColors.black),
               ),
               elevation: 0,
               centerTitle: true,
+<<<<<<< HEAD
               leading: IconButton(
                 onPressed: () => CustomRoute.RoutePop(context),
                 icon: Icon(Icons.arrow_back_ios, color: AppColors.primary),
               ),
+=======
+              leading:
+                  context.watch<ServicesProvider>().role == 'Organizer'
+                      ? null
+                      : IconButton(
+                        onPressed: () => CustomRoute.RoutePop(context),
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: AppColors.primary,
+                        ),
+                      ),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
             ),
             body: ListView(
               physics: BouncingScrollPhysics(),
@@ -48,7 +74,11 @@ class MyEvent extends StatelessWidget {
                   children: [
                     Expanded(
                       child: TextInputCustomSearch(
+<<<<<<< HEAD
                         hint: AppLocalizations.of(context)!.search,
+=======
+                        hint: "Search",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         controller: controller.searchcontroller,
                         onSearch: (query) => controller.searchEvent(query),
                       ),
@@ -62,12 +92,15 @@ class MyEvent extends StatelessWidget {
                 Gap(10),
                 controller.isLoadinggetEvent
                     ? Center(child: CircularProgressIndicator())
+<<<<<<< HEAD
                     : controller.listEventfilter.isEmpty
                     ? Center(
                       child: Text(
                         AppLocalizations.of(context)!.no_data_available,
                       ),
                     )
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     : SingleChildScrollView(
                       physics: NeverScrollableScrollPhysics(),
                       child: Column(
@@ -136,9 +169,13 @@ class MyEvent extends StatelessWidget {
                                                                 .center,
                                                         children: [
                                                           Text(
+<<<<<<< HEAD
                                                             AppLocalizations.of(
                                                               context,
                                                             )!.max,
+=======
+                                                            "Max",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                             style: TextStyles
                                                                 .paraghraph
                                                                 .copyWith(
@@ -176,6 +213,10 @@ class MyEvent extends StatelessWidget {
                                                   style: TextStyles.paraghraph,
                                                 ),
                                                 Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                 Wrap(
                                                   alignment:
                                                       WrapAlignment.start,
@@ -194,6 +235,10 @@ class MyEvent extends StatelessWidget {
                                                         if (e.governorateName !=
                                                             null)
                                                           Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         if (e.governorateName !=
                                                             null)
                                                           Text(
@@ -209,6 +254,10 @@ class MyEvent extends StatelessWidget {
                                                         if (e.governorateName !=
                                                             null)
                                                           Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         if (e.districtName !=
                                                             null)
                                                           Text(
@@ -223,6 +272,10 @@ class MyEvent extends StatelessWidget {
                                                           ),
                                                         if (e.location != null)
                                                           Gap(5),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         if (e.location != null)
                                                           Text(
                                                             e.location!,
@@ -242,12 +295,18 @@ class MyEvent extends StatelessWidget {
                                                           Icons.event_available,
                                                         ),
                                                         Gap(5),
+<<<<<<< HEAD
                                                         Text(
                                                           AppLocalizations.of(
                                                             context,
                                                           )!.from,
                                                         ),
                                                         Gap(5),
+=======
+                                                        Text("From"),
+                                                        Gap(5),
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         Expanded(
                                                           child: Text(
                                                             DateFormat(
@@ -272,11 +331,15 @@ class MyEvent extends StatelessWidget {
                                                       children: [
                                                         Icon(Icons.event_busy),
                                                         Gap(5),
+<<<<<<< HEAD
                                                         Text(
                                                           AppLocalizations.of(
                                                             context,
                                                           )!.to,
                                                         ),
+=======
+                                                        Text("To"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         Gap(5),
                                                         Expanded(
                                                           child: Text(
@@ -305,11 +368,15 @@ class MyEvent extends StatelessWidget {
                                                               .gpp_good_outlined,
                                                         ),
                                                         Gap(5),
+<<<<<<< HEAD
                                                         Text(
                                                           AppLocalizations.of(
                                                             context,
                                                           )!.status_is,
                                                         ),
+=======
+                                                        Text("Status is"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         Gap(5),
                                                         Expanded(
                                                           child: Text(
@@ -335,9 +402,13 @@ class MyEvent extends StatelessWidget {
                                                           ),
                                                           Gap(5),
                                                           Text(
+<<<<<<< HEAD
                                                             AppLocalizations.of(
                                                               context,
                                                             )!.rejection_reason,
+=======
+                                                            "Rejection Reason:",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                           ),
                                                           Gap(5),
                                                           Expanded(
@@ -361,11 +432,15 @@ class MyEvent extends StatelessWidget {
                                                               .volunteer_activism_outlined,
                                                         ),
                                                         Gap(5),
+<<<<<<< HEAD
                                                         Text(
                                                           AppLocalizations.of(
                                                             context,
                                                           )!.registered,
                                                         ),
+=======
+                                                        Text("Registered: "),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                                         Gap(5),
                                                         Text(
                                                           e.volunteerRegistrationsCount
@@ -382,6 +457,10 @@ class MyEvent extends StatelessWidget {
                                                     ),
                                                   ],
                                                 ),
+<<<<<<< HEAD
+=======
+                                                // Gap(5),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                               ],
                                             ),
                                           ),
@@ -399,10 +478,14 @@ class MyEvent extends StatelessWidget {
                                                           context,
                                                           event: e,
                                                         ),
+<<<<<<< HEAD
                                                 title:
                                                     AppLocalizations.of(
                                                       context,
                                                     )!.edit,
+=======
+                                                title: "Edit",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                               ),
                                             ),
                                             Gap(5),
@@ -416,16 +499,21 @@ class MyEvent extends StatelessWidget {
                                                           context,
                                                           e,
                                                         ),
+<<<<<<< HEAD
                                                 title:
                                                     AppLocalizations.of(
                                                       context,
                                                     )!.delete,
+=======
+                                                title: "Delete",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                               ),
                                             ),
                                           ],
                                         ),
                                       Gap(5),
                                       ButtonCustom(
+<<<<<<< HEAD
                                         color: AppColors.secondery,
                                         fullWidth: true,
                                         onTap:
@@ -451,6 +539,8 @@ class MyEvent extends StatelessWidget {
                                       ),
                                       Gap(5),
                                       ButtonCustom(
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                         color: AppColors.primary,
                                         fullWidth: true,
                                         onTap:
@@ -470,6 +560,7 @@ class MyEvent extends StatelessWidget {
                                                           ),
                                                 builder:
                                                     (context, child) =>
+<<<<<<< HEAD
                                                         EventDetails(true),
                                               ),
                                             ),
@@ -477,6 +568,12 @@ class MyEvent extends StatelessWidget {
                                             AppLocalizations.of(
                                               context,
                                             )!.show_details,
+=======
+                                                        EventDetails(),
+                                              ),
+                                            ),
+                                        title: "Show Details",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                       ),
                                     ],
                                   ),

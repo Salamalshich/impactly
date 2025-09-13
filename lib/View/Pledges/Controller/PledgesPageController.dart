@@ -4,13 +4,20 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:gap/gap.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/Controller/GovernorateController%20copy.dart';
+=======
+import 'package:impactlyflutter/Controller/GovernorateController.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:impactlyflutter/Model/Pledges.dart';
 import 'package:impactlyflutter/Services/CustomDialog.dart';
 import 'package:impactlyflutter/Services/Failure.dart';
 import 'package:impactlyflutter/Services/Routes.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustom.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'dart:developer';
@@ -147,6 +154,7 @@ class PledgesPageController with ChangeNotifier {
     quantitycontroller.text = pledge.quantity!.toString();
     notescontroller.text = pledge.notes!;
   }
+<<<<<<< HEAD
 DialogAddOrUpdatePledges(BuildContext context, {Pledges? pledge}) async {
   await context.read<GovernorateController>().getGovernorates(context);
   final formkey = GlobalKey<FormState>();
@@ -268,6 +276,123 @@ DialogAddOrUpdatePledges(BuildContext context, {Pledges? pledge}) async {
     ),
   );
 }
+=======
+
+  DialogAddOrUpdatePledges(BuildContext context, {Pledges? pledge}) async {
+    await context.read<GovernorateController>().getGovernorates(context);
+    final formkey = GlobalKey<FormState>();
+    if (pledge != null) {
+      filldata(pledge, context);
+    }
+    showDialog(
+      context: context,
+      builder:
+          (context) => StatefulBuilder(
+            builder: (context, setState) {
+              return AlertDialog(
+                title: Text("${pledge != null ? "Update" : "Add New"} Pledge"),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                content: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Form(
+                      key: formkey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Item name", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: item_namecontroller,
+                            hint: "Item name",
+                            icon: Icon(Icons.title),
+                          ),
+                          Gap(10),
+                          Text("Quantity", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: quantitycontroller,
+                            hint: "Quantitiy",
+                            icon: Icon(Icons.numbers_outlined),
+                          ),
+                          Gap(10),
+                          Text("Location", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: notescontroller,
+                            hint: "Notes",
+                            icon: Icon(Icons.notes_outlined),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                actions: [
+                  GestureDetector(
+                    onTap: () async {
+                      if (formkey.currentState!.validate()) {
+                        EasyLoading.show();
+                        try {
+                          Either<Failure, bool> result;
+                          if (pledge != null) {
+                            result = await UpdatePledge(context, pledge.id!);
+                          } else {
+                            result = await AddPledge(context);
+                          }
+                          result.fold(
+                            (l) {
+                              EasyLoading.showError(l.message);
+                              EasyLoading.dismiss();
+                            },
+                            (r) {
+                              EasyLoading.dismiss();
+                            },
+                          );
+                        } catch (e) {
+                          EasyLoading.dismiss();
+                        }
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          pledge != null ? "Update" : "Add",
+                          style: TextStyles.button,
+                        ),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      cleardata();
+
+                      CustomRoute.RoutePop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Close",
+                        style: TextStyles.pramed.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+    );
+  }
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 
   Future<Either<Failure, bool>> UpdatePledge(
     BuildContext context,
@@ -344,6 +469,7 @@ DialogAddOrUpdatePledges(BuildContext context, {Pledges? pledge}) async {
       return Left(GlobalFailure());
     }
   }
+<<<<<<< HEAD
 DialogDeletePledges(BuildContext context, Pledges Pledges) {
   showDialog(
     context: context,
@@ -421,4 +547,85 @@ DialogDeletePledges(BuildContext context, Pledges Pledges) {
     ),
   );
 }
+=======
+
+  DialogDeletePledges(BuildContext context, Pledges Pledges) {
+    showDialog(
+      context: context,
+      builder:
+          (context) => StatefulBuilder(
+            builder: (context, setState) {
+              return AlertDialog(
+                title: Text("Delete Pledge"),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                content: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Are you sure you want to delete the pledge and its associated data?",
+                          style: TextStyles.paraghraph,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                actions: [
+                  GestureDetector(
+                    onTap: () async {
+                      EasyLoading.show();
+                      try {
+                        Either<Failure, bool> result = await DeletePledges(
+                          context,
+                          Pledges.id!,
+                        );
+                        result.fold(
+                          (l) {
+                            EasyLoading.showError(l.message);
+                            EasyLoading.dismiss();
+                          },
+                          (r) {
+                            EasyLoading.dismiss();
+                          },
+                        );
+                      } catch (e) {
+                        EasyLoading.dismiss();
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.red,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Delete", style: TextStyles.button),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      CustomRoute.RoutePop(context);
+                      cleardata();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Close",
+                        style: TextStyles.pramed.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+    );
+  }
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'dart:developer';
 import 'dart:io';
 
@@ -12,19 +13,32 @@ import 'package:impactlyflutter/Controller/CategoryController.dart';
 import 'package:impactlyflutter/Controller/GovernorateController%20copy.dart';
 import 'package:impactlyflutter/Controller/LocaleController.dart';
 import 'package:impactlyflutter/Controller/NotificationProvider.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:impactlyflutter/Constant/colors.dart';
+import 'package:impactlyflutter/Controller/GovernorateController.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:impactlyflutter/Services/NetworkClient.dart';
 import 'package:impactlyflutter/Services/ServicesProvider.dart';
 import 'package:impactlyflutter/View/Splash/Controller/SplashController.dart';
 import 'package:impactlyflutter/View/Splash/Splash.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/firebase_options.dart';
 import 'package:impactlyflutter/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+=======
+import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+<<<<<<< HEAD
   // تحميل SharedPreferences
   final prefs = await SharedPreferences.getInstance();
 
@@ -53,11 +67,16 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   await initLocalNotification();
 
+=======
+  final servicesProvider = ServicesProvider();
+  await servicesProvider.init();
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider<ServicesProvider>.value(value: servicesProvider),
         ChangeNotifierProvider<GovernorateController>(
+<<<<<<< HEAD
           create: (_) => GovernorateController(),
         ),
         ChangeNotifierProvider<CategoryController>(
@@ -75,6 +94,13 @@ void main() async {
               ),
         ),
         ChangeNotifierProvider<LocaleController>.value(value: localeController),
+=======
+          create: (context) => GovernorateController(),
+        ),
+        Provider<NetworkClient>(
+          create: (context) => NetworkClient(http.Client(), servicesProvider),
+        ),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
       ],
       child: MyApp(),
     ),
@@ -89,7 +115,10 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
+<<<<<<< HEAD
         final localeController = context.watch<LocaleController>();
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Impaclty',
@@ -117,6 +146,7 @@ class MyApp extends StatelessWidget {
               secondary: AppColors.secondery,
             ).copyWith(surface: AppColors.secondery),
           ),
+<<<<<<< HEAD
           locale: localeController.locale,
           supportedLocales: const [Locale('en'), Locale('ar')],
           localizationsDelegates: const [
@@ -125,6 +155,9 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
+=======
+          locale: Locale('en'),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
           home: ChangeNotifierProvider(
             create: (context) => SplashController()..whenIslogin(context),
             builder: (context, child) => Splash(),

@@ -4,9 +4,13 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:gap/gap.dart';
 import 'package:impactlyflutter/Constant/colors.dart';
 import 'package:impactlyflutter/Constant/text_styles.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/Controller/CategoryController.dart';
 import 'package:impactlyflutter/Controller/GovernorateController%20copy.dart';
 import 'package:impactlyflutter/Model/Category.dart';
+=======
+import 'package:impactlyflutter/Controller/GovernorateController.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:impactlyflutter/Model/Districts.dart';
 import 'package:impactlyflutter/Model/Event.dart';
 import 'package:impactlyflutter/Model/Governorate.dart';
@@ -16,7 +20,10 @@ import 'package:impactlyflutter/Services/Routes.dart';
 import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
 import 'package:impactlyflutter/Widgets/Dropdown/DropdownCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustom.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'dart:convert';
@@ -77,7 +84,10 @@ class MyEventController with ChangeNotifier {
   TextEditingController maxvolunteerscontroller = TextEditingController();
   Governorate? governorate;
   District? districts;
+<<<<<<< HEAD
   Category? category;
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
   void SelectEventDateFrom(BuildContext context, Function setstate) {
     showDatePicker(
       context: context,
@@ -202,7 +212,11 @@ class MyEventController with ChangeNotifier {
           "start_date": eventdatefrom.text,
           "end_date": eventdateto.text,
           "location": locationcontroller.text,
+<<<<<<< HEAD
           "category_id": category!.id,
+=======
+          "category": categorycontroller.text,
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
           "max_volunteers": maxvolunteerscontroller.text,
           "district_id": districts?.id.toString(),
         }),
@@ -216,9 +230,12 @@ class MyEventController with ChangeNotifier {
         CustomDialog.DialogSuccess(context, title: "${data['message']}");
         GetMyEvent(context);
         return Right(true);
+<<<<<<< HEAD
       } else if (response.statusCode == 422) {
         CustomDialog.DialogError(context, title: "${data['message']}");
         return Right(true);
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
       } else if (response.statusCode == 404) {
         return Left(ResultFailure(''));
       } else {
@@ -241,7 +258,10 @@ class MyEventController with ChangeNotifier {
     maxvolunteerscontroller.clear();
     governorate = null;
     districts = null;
+<<<<<<< HEAD
     category = null;
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
   }
 
   filldata(Event event, BuildContext context) async {
@@ -275,6 +295,7 @@ class MyEventController with ChangeNotifier {
         break;
       }
     }
+<<<<<<< HEAD
 
     final catcontroller = Provider.of<CategoryController>(
       context,
@@ -292,6 +313,13 @@ class MyEventController with ChangeNotifier {
     governorate = value;
     districts = null;
     setState(() {});
+=======
+  }
+
+  SelectGovernorate(value) {
+    governorate = value;
+    districts = null;
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     notifyListeners();
   }
 
@@ -300,6 +328,7 @@ class MyEventController with ChangeNotifier {
     notifyListeners();
   }
 
+<<<<<<< HEAD
   SelectCategory(value) {
     category = value;
     notifyListeners();
@@ -308,6 +337,10 @@ class MyEventController with ChangeNotifier {
   DialogAddOrUpdateEvent(BuildContext context, {Event? event}) async {
     await context.read<GovernorateController>().getGovernorates(context);
     await context.read<CategoryController>().getCategories(context);
+=======
+  DialogAddOrUpdateEvent(BuildContext context, {Event? event}) async {
+    await context.read<GovernorateController>().getGovernorates(context);
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     final formkey = GlobalKey<FormState>();
     if (event != null) {
       filldata(event, context);
@@ -318,6 +351,7 @@ class MyEventController with ChangeNotifier {
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(
                   event != null
                       ? AppLocalizations.of(context)!.update_event
@@ -371,6 +405,70 @@ class MyEventController with ChangeNotifier {
                                   context
                                       .watch<GovernorateController>()
                                       .governorates
+=======
+                title: Text("${event != null ? "Update" : "Add New"} Event"),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                content: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Form(
+                      key: formkey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Title", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: titlecontroller,
+                            hint: "Title",
+                            icon: Icon(Icons.title),
+                          ),
+                          Gap(10),
+                          Text("Description", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: descriptioncontroller,
+                            hint: "Description",
+                            icon: Icon(Icons.title),
+                          ),
+                          Gap(10),
+                          Text("Governorates", style: TextStyles.title),
+                          Gap(5),
+                          DropdownCustom<Governorate>(
+                            isrequierd: true,
+                            hint: "Governorates",
+                            value: governorate,
+                            items:
+                                context
+                                    .watch<GovernorateController>()
+                                    .governorates
+                                    .map(
+                                      (e) => DropdownMenuItem(
+                                        value: e,
+                                        child: Text(e.name!),
+                                      ),
+                                    )
+                                    .toList(),
+                            onChanged: (p0) {
+                              setState(() {
+                                SelectGovernorate(p0);
+                              });
+                            },
+                          ),
+                          if (governorate != null) Gap(10),
+                          if (governorate != null)
+                            Text("Districts", style: TextStyles.title),
+                          if (governorate != null) Gap(5),
+                          if (governorate != null)
+                            DropdownCustom<District>(
+                              isrequierd: true,
+                              hint: "Districts",
+                              value: districts,
+                              items:
+                                  governorate!.districts!
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                                       .map(
                                         (e) => DropdownMenuItem(
                                           value: e,
@@ -379,6 +477,7 @@ class MyEventController with ChangeNotifier {
                                       )
                                       .toList(),
                               onChanged: (p0) {
+<<<<<<< HEAD
                                 SelectGovernorate(p0, setState);
                                 setState(() {});
                               },
@@ -492,6 +591,58 @@ class MyEventController with ChangeNotifier {
                             ),
                           ],
                         ),
+=======
+                                SelectDistricts(p0);
+                              },
+                            ),
+                          Gap(10),
+                          Text("Start Event Date", style: TextStyles.title),
+                          Gap(5),
+                          ButtonCustom(
+                            onTap: () => SelectEventDateFrom(context, setState),
+
+                            title:
+                                eventdatefrom.text == ''
+                                    ? "Pick"
+                                    : eventdatefrom.text,
+                          ),
+                          Gap(10),
+                          Text("End Event Date", style: TextStyles.title),
+                          Gap(5),
+                          ButtonCustom(
+                            onTap: () => SelectEventDateTo(context, setState),
+
+                            title:
+                                eventdateto.text == ''
+                                    ? "Pick"
+                                    : eventdateto.text,
+                          ),
+                          Gap(10),
+                          Text("Location", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: locationcontroller,
+                            hint: "Location",
+                            icon: Icon(Icons.title),
+                          ),
+                          Gap(10),
+                          Text("Category", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: categorycontroller,
+                            hint: "Category",
+                            icon: Icon(Icons.title),
+                          ),
+                          Gap(10),
+                          Text("Max Volunteers", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: maxvolunteerscontroller,
+                            hint: "Max Volunteers",
+                            icon: Icon(Icons.title),
+                          ),
+                        ],
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
@@ -530,9 +681,13 @@ class MyEventController with ChangeNotifier {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
+<<<<<<< HEAD
                           event != null
                               ? AppLocalizations.of(context)!.update
                               : AppLocalizations.of(context)!.add,
+=======
+                          event != null ? "Update" : "Add",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                           style: TextStyles.button,
                         ),
                       ),
@@ -541,12 +696,20 @@ class MyEventController with ChangeNotifier {
                   TextButton(
                     onPressed: () {
                       cleardata();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       CustomRoute.RoutePop(context);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         AppLocalizations.of(context)!.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),
@@ -642,23 +805,40 @@ class MyEventController with ChangeNotifier {
   }
 
   DialogDeleteEvent(BuildContext context, Event event) {
+<<<<<<< HEAD
     final loc = AppLocalizations.of(context)!;
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     showDialog(
       context: context,
       builder:
           (context) => StatefulBuilder(
             builder: (context, setState) {
               return AlertDialog(
+<<<<<<< HEAD
                 title: Text(loc.delete_event),
+=======
+                title: Text("Delete Event"),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 content: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(16),
+<<<<<<< HEAD
                     child: Text(
                       loc.delete_event_confirmation,
                       style: TextStyles.paraghraph,
+=======
+                    child: Column(
+                      children: [
+                        Text(
+                          "Are you sure you want to delete the Event and its associated data?",
+                          style: TextStyles.paraghraph,
+                        ),
+                      ],
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                     ),
                   ),
                 ),
@@ -691,7 +871,11 @@ class MyEventController with ChangeNotifier {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
+<<<<<<< HEAD
                         child: Text(loc.delete, style: TextStyles.button),
+=======
+                        child: Text("Delete", style: TextStyles.button),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                       ),
                     ),
                   ),
@@ -703,7 +887,11 @@ class MyEventController with ChangeNotifier {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
+<<<<<<< HEAD
                         loc.close,
+=======
+                        "Close",
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
                         style: TextStyles.pramed.copyWith(
                           color: AppColors.primary,
                         ),

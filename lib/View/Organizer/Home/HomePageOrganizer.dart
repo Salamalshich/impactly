@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:impactlyflutter/View/Organizer/Home/Controller/HomePageOrganizerController.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +10,9 @@ import 'package:impactlyflutter/Constant/text_styles.dart';
 import 'package:impactlyflutter/Widgets/Button/ButtonCustom.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustomSearch.dart';
 import 'package:intl/intl.dart';
+=======
+import 'package:provider/provider.dart';
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 
 class HomePageOrganizer extends StatelessWidget {
   const HomePageOrganizer({super.key});
@@ -16,6 +20,7 @@ class HomePageOrganizer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomePageOrganizerController>(
+<<<<<<< HEAD
       builder:
           (context, controller, child) => Scaffold(
             appBar: AppBar(
@@ -467,6 +472,9 @@ class HomePageOrganizer extends StatelessWidget {
               ],
             ),
           ),
+=======
+      builder: (context, controller, child) => Scaffold(),
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
     );
   }
 }

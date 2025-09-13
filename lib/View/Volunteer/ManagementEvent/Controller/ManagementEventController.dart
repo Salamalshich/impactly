@@ -10,7 +10,10 @@ import 'package:impactlyflutter/Services/CustomDialog.dart';
 import 'package:impactlyflutter/Services/Failure.dart';
 import 'package:impactlyflutter/Services/Routes.dart';
 import 'package:impactlyflutter/Widgets/TextInput/TextInputCustom.dart';
+<<<<<<< HEAD
 import 'package:impactlyflutter/l10n/app_localizations.dart';
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'dart:developer';
@@ -80,6 +83,10 @@ class ManagementEventController with ChangeNotifier {
       final response = await client.request(
         path: AppApi.MyRegisteredEvents,
         withtoken: true,
+<<<<<<< HEAD
+=======
+        pageination: false,
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
         requestType: RequestType.GET,
       );
       log(response.statusCode.toString());
@@ -147,6 +154,7 @@ class ManagementEventController with ChangeNotifier {
       return Left(GlobalFailure());
     }
   }
+<<<<<<< HEAD
 DialogWithdrawFromEvent(BuildContext context, int id) {
   showDialog(
     context: context,
@@ -218,6 +226,87 @@ DialogWithdrawFromEvent(BuildContext context, int id) {
     ),
   );
 }
+=======
+
+  DialogWithdrawFromEvent(BuildContext context, int id) {
+    showDialog(
+      context: context,
+      builder:
+          (context) => StatefulBuilder(
+            builder: (context, setState) {
+              return AlertDialog(
+                title: Text("Withdraw from Event"),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                content: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Are you sure you want to withdraw from this event? "
+                          "Once withdrawn, you will not be able to register for this event again.",
+                          style: TextStyles.paraghraph,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                actions: [
+                  GestureDetector(
+                    onTap: () async {
+                      EasyLoading.show();
+                      try {
+                        Either<Failure, bool> result = await WithdrawFromEvent(
+                          context,
+                          id,
+                        );
+                        result.fold(
+                          (l) {
+                            EasyLoading.showError(l.message);
+                            EasyLoading.dismiss();
+                          },
+                          (r) {
+                            EasyLoading.dismiss();
+                          },
+                        );
+                      } catch (e) {
+                        EasyLoading.dismiss();
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.active,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Withdraw", style: TextStyles.button),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      CustomRoute.RoutePop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Close",
+                        style: TextStyles.pramed.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+    );
+  }
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 
   Future<Either<Failure, bool>> FeedbackEvent(
     BuildContext context,
@@ -244,9 +333,12 @@ DialogWithdrawFromEvent(BuildContext context, int id) {
         CustomDialog.DialogSuccess(context, title: "${data['message']}");
         MyRegisteredEvents(context);
         return Right(true);
+<<<<<<< HEAD
       } else if (response.statusCode == 403) {
         CustomDialog.DialogError(context, title: "${data['message']}");
         return Right(false);
+=======
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
       } else if (response.statusCode == 404) {
         return Left(ResultFailure(''));
       } else {
@@ -262,6 +354,7 @@ DialogWithdrawFromEvent(BuildContext context, int id) {
   TextEditingController feedbackcontroller = TextEditingController();
   int rate = 0;
   DialogFeedbackEvent(BuildContext context, int id) async {
+<<<<<<< HEAD
   final formkey = GlobalKey<FormState>();
   showDialog(
     context: context,
@@ -563,4 +656,114 @@ DialogReportEvent(BuildContext context, int id) async {
   );
 }
 
+=======
+    final formkey = GlobalKey<FormState>();
+    // filldata(volunteerParticipation);
+    showDialog(
+      context: context,
+      builder:
+          (context) => StatefulBuilder(
+            builder: (context, setState) {
+              return AlertDialog(
+                title: Text("Feedback Event"),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                content: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Form(
+                      key: formkey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Feedback", style: TextStyles.title),
+                          Gap(5),
+                          TextInputCustom(
+                            controller: feedbackcontroller,
+                            hint: "Feedback",
+                            icon: Icon(Icons.access_time_outlined),
+                          ),
+                          Gap(10),
+
+                          Text("Rate", style: TextStyles.title),
+                          Gap(5),
+                          RatingBar.builder(
+                            glow: false,
+                            allowHalfRating: false,
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              return Icon(Icons.star, color: AppColors.primary);
+                            },
+                            maxRating: 5,
+                            minRating: 1,
+                            initialRating: 3,
+
+                            tapOnlyMode: true,
+                            onRatingUpdate: (value) {
+                              rate = value.round();
+                              log(rate.toString());
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                actions: [
+                  GestureDetector(
+                    onTap: () async {
+                      if (formkey.currentState!.validate()) {
+                        EasyLoading.show();
+                        try {
+                          Either<Failure, bool> result = await FeedbackEvent(
+                            context,
+                            id,
+                          );
+                          result.fold(
+                            (l) {
+                              EasyLoading.showError(l.message);
+                              EasyLoading.dismiss();
+                            },
+                            (r) {
+                              EasyLoading.dismiss();
+                            },
+                          );
+                        } catch (e) {
+                          EasyLoading.dismiss();
+                        }
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Add", style: TextStyles.button),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      CustomRoute.RoutePop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Close",
+                        style: TextStyles.pramed.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+    );
+  }
+>>>>>>> 825b2bb55dfeb431a16107c04ddf047000640836
 }
